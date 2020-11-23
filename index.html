@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calendário</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/eb83065a20.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="root">
+      <div class="calendar-container">
+        <header>
+          <h1 class="title">Calendário</h1>
+          <div class="switch">
+            <button id="previous">
+              <i class="fas fa-chevron-left"></i>
+              <span>Mês Anterior</span>
+            </button>
+            <div class="date">
+              <p class="month">Placeholder</p>
+              <p class="skip"> - </p>
+              <p class="year">Placeholder</p>
+            </div>
+            <button id="next">
+              <span>Mês Posterior</span>
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </header>
+        <main>
+          <div class="calendar">
+            <header>
+              <div><p class="day">D</p></div>
+              <div><p class="day">S</p></div>
+              <div><p class="day">T</p></div>
+              <div><p class="day">Q</p></div>
+              <div><p class="day">Q</p></div>
+              <div><p class="day">S</p></div>
+              <div><p class="day">S</p></div>
+            </header>
+            <main id="daysDisplay"></main>
+          </div>
+        </main>
+      </div>
+      <div class="holiday-list" id="holiday-list"></div>
+    </div>
+    <script src="js/main.js" type="module"></script>
+  </body>
+</html>

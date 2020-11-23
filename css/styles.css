@@ -1,0 +1,320 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #FF674D;
+  --color-secondary: #FFEC51;
+  --color-background-primary: #FFFBDB;
+  --color-background-secondary: #F3F1F9;
+  --color-current-day: #7776BC;
+  --color-holiday: #7aceac;
+  --color-weekend-primary: #c5daeb;
+  --color-weekend-secondary: #accfec;
+  --color-text-highlight: white;
+  --color-text-background: black;
+  --color-other-month: #9b9b9b;
+}
+
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 10px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+button {
+  padding: 0;
+}
+
+.root {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  width: 95%;
+  max-width: 800px;
+}
+
+.calendar-container {
+  overflow: hidden;
+  border-radius: .5rem;
+  margin-top: 1rem;
+}
+
+.calendar-container > header {
+  padding: .5rem;
+  background-color: var(--color-primary);
+  color: var(--color-text-highlight);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar-container > header .title {
+  font-family: 'Quicksand', Verdana;
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.calendar-container > header .switch {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.calendar-container > header .switch button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  height: 100%;
+  padding: .25rem .5rem;
+  border-radius: 9rem;
+  transition: .12s ease;
+  cursor: pointer;
+}
+
+.calendar-container > header .switch button:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-text-background);
+}
+
+.calendar-container > header .switch button:focus {
+  outline: none;
+}
+
+.calendar-container > header .switch button:active {
+  opacity: 0.8;
+}
+
+.calendar-container > header .switch .date {
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+.calendar {
+  width: 100%;
+}
+
+.calendar div {
+  font-family: 'Roboto', sans-serif;
+  padding: .5rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar div .day {
+  font-size: 1.25rem;
+}
+
+.calendar header {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  justify-content: space-around;
+  background-color: var(--color-secondary);
+  color: var(--color-text-background);
+}
+
+.calendar main {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr;
+  justify-content: center;
+}
+
+.calendar main div {
+  min-height: 4.125rem;
+  background-color: var(--color-background-primary);
+}
+
+.calendar main div:nth-child(14n + 9),
+.calendar main div:nth-child(14n + 10),
+.calendar main div:nth-child(14n + 11),
+.calendar main div:nth-child(14n + 12),
+.calendar main div:nth-child(14n + 13) {
+  background-color: var(--color-background-secondary);
+}
+
+.other-month {
+  background-color: var(--color-other-month) !important;
+  color: var(--color-text-background) !important;
+}
+
+.calendar main div:nth-child(14n + 1),
+.calendar main div:nth-child(14n + 7) {  
+  background-color: var(--color-weekend-primary);
+}
+
+.calendar main div:nth-child(14n + 8),
+.calendar main div:nth-child(14n + 14) {
+  background-color: var(--color-weekend-secondary);
+}
+
+.holiday {
+  background-color: var(--color-holiday) !important;
+  color: var(--color-text-highlight);
+  cursor: pointer;
+  transition: .12s ease;
+  user-select: none;
+}
+
+.holiday .description {
+  text-align: center;
+}
+
+.holiday:hover, .holiday .day:hover, .description .hover {
+  color: var(--color-text-background) !important;
+}
+
+.holiday:active {
+  opacity: .75;
+}
+
+.current-day {
+  background-color: var(--color-current-day) !important;
+  color: var(--color-text-highlight) !important;
+}
+
+.holiday-list {
+  margin-top: .5rem;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.holiday-list p {
+  display: block;
+  font-size: .75rem;
+  padding: .5rem;
+  border-radius: 99rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  transition: .12s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.holiday-list p + p {
+  margin-top: .5rem;
+}
+
+.holiday-list p:hover {
+  background-color: var(--color-holiday);
+  color: var(--color-text-highlight);
+}
+
+.holiday-list p:active {
+  opacity: .75;
+}
+
+.holiday-info {
+  background-color: var(--color-background-secondary);
+  overflow: hidden;
+  border-radius: .5rem;
+  margin-top: 1rem;
+}
+
+.holiday-info header {
+  background-color: var(--color-primary);
+  padding: 1rem;
+  color: var(--color-text-highlight);
+  box-shadow: 0 .01rem .5rem var(--color-text-background) ;
+}
+
+.holiday-info header .title {
+  font-size: 2rem;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+}
+
+.holiday-info header .subtitle {
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.holiday-info main {  
+  padding: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.holiday-info main .type {
+  text-align: right;
+  font-weight: 500;
+  color: var(--color-text-highlight);
+  padding: .3rem;
+  border-radius: 99rem;
+  background-color: var(--color-holiday);
+  margin-bottom: 1rem;  
+}
+
+.holiday-info footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+.holiday-info footer a {
+  text-decoration: none;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: .5rem;
+  border-radius: 99rem;
+  transition: .12s ease;
+}
+
+.holiday-info footer a+a {
+  margin-left: 2rem;
+}
+
+.holiday-info footer a:active {
+  opacity: .75;
+}
+
+.see-more:hover {
+  color: var(--color-current-day);
+  background-color: var(--color-text-highlight);
+}
+
+.see-more {
+  color: var(--color-text-highlight);
+  background-color: var(--color-current-day);
+}
+
+.back {
+  color: var(--color-text-background);
+  background-color: var(--color-secondary);
+}
+
+.back:hover {
+  color: var(--color-secondary);
+  background-color: var(--color-text-background);
+}
+
+@media only screen and (max-width: 383px) {
+  .switch span {
+    display: none;
+  }
+}
